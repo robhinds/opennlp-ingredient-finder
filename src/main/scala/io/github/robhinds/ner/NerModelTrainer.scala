@@ -20,7 +20,6 @@ object NerModelTrainer {
 
     try {
       val params = TrainingParameters.defaultParams()
-      params.put(TrainingParameters.ITERATIONS_PARAM, "200")
       params.put(TrainingParameters.ALGORITHM_PARAM, QNTrainer.MAXENT_QN_VALUE)
 
       model = NameFinderME.train("en", "food", sampleStream, params, new TokenNameFinderFactory())
