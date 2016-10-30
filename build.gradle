@@ -1,0 +1,31 @@
+group = "io.github.robhinds"
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "2.11"
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.github.maiflai:gradle-scalatest:0.6-5-g9065d91"
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://repository.apache.org/content/repositories/snapshots" }
+}
+
+apply {
+    plugin "scala"
+    plugin "com.github.maiflai.scalatest"
+}
+
+dependencies {
+    compile "org.scala-lang:scala-library:2.11.8"	
+    compile "org.apache.opennlp:opennlp-tools:1.6.1-SNAPSHOT"
+	testCompile 'org.scalatest:scalatest_2.11:3.0.0'
+	testRuntime 'org.pegdown:pegdown:1.6.0'
+}
